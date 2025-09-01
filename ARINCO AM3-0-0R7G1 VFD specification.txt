@@ -1,0 +1,30 @@
+AM3 series, G1 maximum power 2R2
+-------------------------------------------------------------------------------------------------
+Input = G1 means 1 phase, 220VAC (if G3 means 3 phases input)
+Output = 3 phases, 220VAC
+Power = 0R7 means 0.75kW
+-------------------------------------------------------------------------------------------------
+ENABLE
+F0.02 = [2] means Communication Control, [1] means Terminal (external switch) and [0] means Panel
+F0.03 = [6] means Communication Frequency, [0] means Panel, [3] means POT 10k 1W
+-------------------------------------------------------------------------------------------------
+READ
+address 8448 (or 2100H) shows error code (check datasheet for more detail)
+address 8449 (or 2101H) shows status (check datasheet for more detail)
+address 8450 (or 2102H) length 8 shows parameters as the following
+  Setting frequency = 50Hz (default)
+  Output frequency = 0 if no load
+  Output current = 0 if no load
+  Bus voltage = 318
+  Output voltage = 0 if no load
+  Inverter temperature = 0 if no load
+  PID feedback value
+  PID setting value
+-------------------------------------------------------------------------------------------------
+WRITE SINGLE REGISTER
+address 8192 (or 2000H)
+  [1 or 0001H] = stop
+  [18 or 0012H] = forward
+  [34 or 0022H] = reverse
+address 8193 (or 2001H) = percentage of maximum frequency (2 digits after zero)
+  example: if set value of register 8193 is 5000, the frequency shows 25 Hz (50% of 50Hz)

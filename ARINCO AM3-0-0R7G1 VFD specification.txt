@@ -8,7 +8,7 @@ ENABLE
 F0.02 = [2] means Communication Control, [1] means Terminal (external switch) and [0] means Panel
 F0.03 = [6] means Communication Frequency, [0] means Panel, [3] means POT 10k 1W
 -------------------------------------------------------------------------------------------------
-READ
+READ HOLDING REGISTER
 address 8448 (or 2100H) shows error code (check datasheet for more detail)
 address 8449 (or 2101H) shows status (check datasheet for more detail)
 address 8450 (or 2102H) length 8 shows parameters as the following
